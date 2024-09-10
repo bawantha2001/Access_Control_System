@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "507776540765",
+    "firebase_url": "https://access-control-system-28125-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "access-control-system-28125",
+    "storage_bucket": "access-control-system-28125.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507776540765:android:5ff51a04b26283425c6db4",
+        "android_client_info": {
+          "package_name": "com.Bsoft.access_control_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN3zIwa-fSL2jWrgPgk-8cr7J7GEeqBIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
