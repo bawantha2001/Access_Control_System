@@ -1,6 +1,8 @@
 import 'package:access_control_system/models/students_detail_model.dart';
+import 'package:fancy_card/fancy_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../controllers/controllers.dart';
 import '../global.dart';
@@ -117,38 +119,40 @@ class _StudentsState extends State<Students> {
                         else{
                           List<StudentsDetailModel> studentDetailList = snap.data!;
 
-                          return ListView.builder(
-                            itemCount: studentDetailList.length,
-                            itemBuilder: (context, index){
+                          return SizedBox(
+                            height: MediaQuery.of(context).size.height,
 
-                              Card(
-                                margin: EdgeInsets.symmetric(vertical: 6, horizontal: 15),
-                                elevation: 2,
-                                child: ListTile(
-                                  leading: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    backgroundImage: AssetImage("assets/imgs/profile.png"),
-                                    radius: 20,
-                                  ),
-
-                                  title: Text(
-                                    "${studentDetailList[index].firstName} ${studentDetailList[index].lastName}" ?? "No name",
-                                    style: TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-
-                                  subtitle: Text(
-                                    "${studentDetailList[index].phone}" ?? "No name",
-                                    style: TextStyle(fontWeight: FontWeight.normal),
-                                  ),
-
-                                  trailing: Text(
-                                    "${studentDetailList[index].undergraduateYear} year" ?? "No name",
-                                    style: TextStyle(fontWeight: FontWeight.normal),
+                            child: ListView.builder(
+                              itemCount: studentDetailList.length,
+                              itemBuilder: (context, index) =>
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 6.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.shade300,
+                                      border: Border.all(width:1,color: Colors.transparent),
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 3),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Fluttertoast.showToast(msg: "msg");
+                                        },
+                                        child: FancyCard(
+                                          title: "${studentDetailList.elementAt(index).firstName} ${studentDetailList.elementAt(index).lastName}",
+                                          image: Image(image: AssetImage("assets/imgs/profile.png"),fit: BoxFit.cover,),
+                                          subtitle: "${studentDetailList.elementAt(index).studentId}",
+                                          rateIcon: Icon(Icons.phone,color: Color.fromRGBO(255, 199, 0, 1),),
+                                          locationIcon: Icon(Icons.school,color: Color.fromRGBO(255, 199, 0, 1),),
+                                          locationText: "${studentDetailList.elementAt(index).undergraduateYear} Year",
+                                          ratingText:"${studentDetailList.elementAt(index).phone}",
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              );
-
-                            },
+                            ),
                           );
                         }
                       }

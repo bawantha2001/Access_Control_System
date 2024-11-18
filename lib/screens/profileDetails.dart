@@ -2,11 +2,9 @@ import 'dart:io';
 
 import 'package:access_control_system/controllers/controllers.dart';
 import 'package:access_control_system/screens/bottomNavigationBar.dart';
-import 'package:access_control_system/screens/homeScreen.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
